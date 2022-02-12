@@ -2,9 +2,13 @@
 import random
 
 reGame = 2
+game_count = 0
 
 while reGame == 2:
-    player_money = input('持ち金を決めてください\n')
+    if game_count != 0:
+        print('持ち金は、' + str(player_money) + 'です')
+    else:
+        player_money = input('持ち金を決めてください\n')
 
     bet_money = input('掛け金を決めてください\n')
 
@@ -150,23 +154,23 @@ while reGame == 2:
     elif (player_num == 21 and dealer_num > 21) or (player_num == 21 and dealer_num < 21):
         print('ブラックジャックです。プレイヤーの勝利です。')
         print('掛金を獲得します。')
-        player_money = player_money + bet_money
+        player_money += bet_money
 
     elif player_num < 21 and dealer_num > 21:
         print('ディーラーがバーストしました。プレイヤーの勝利です。')
         print('掛金を獲得します。')
-        player_money = player_money + bet_money
+        player_money += bet_money
 
     #プレイヤーが負け、ディーラーが勝ち
     elif (player_num > 21 and dealer_num == 21) or (player_num > 21 and dealer_num < 21):
         print('バーストしました。ディーラーの勝利です。')
         print('掛金を没収します。')
-        player_money = player_money - bet_money
+        player_money -= bet_money
 
     elif player_num < 21 and dealer_num == 21:
         print('ディーラーがブラックジャックです。ディーラーの勝利です。')
         print('掛金を没収します。')
-        player_money = player_money - bet_money
+        player_money -= bet_money
 
     #その他、プレイヤーとディーラーが21より下の時
     else:
@@ -175,11 +179,11 @@ while reGame == 2:
         elif player_money > dealer_num:
             print('プレイヤーの勝利です。')
             print('掛金を獲得します。')
-            player_money = player_money + bet_money
+            player_money += bet_money
         else:
             print('ディーラーの勝利です。')
             print('掛金を没収します。')
-            player_money = player_money - bet_money
+            player_money -= bet_money
 
 
 
@@ -193,5 +197,6 @@ while reGame == 2:
         reGame = input('ゲームを続けますか？[no = 1 or yes = 2]\n')
         if reGame == 2:
             print('ゲームを続けます。')
+            game_count += 1
         else:
             print('ゲームを終了します。')
