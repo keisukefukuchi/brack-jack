@@ -172,9 +172,9 @@ while reGame == 2:
 
     #その他、プレイヤーとディーラーが21より下の時
     else:
-        if player_money == dealer_num:
+        if player_num == dealer_num:
             print('引き分けです。掛け金を返金します。')
-        elif player_money > dealer_num:
+        elif player_num > dealer_num:
             print('プレイヤーの勝利です。')
             print('掛金を獲得します。')
             player_money += bet_money
@@ -182,7 +182,6 @@ while reGame == 2:
             print('ディーラーの勝利です。')
             print('掛金を没収します。')
             player_money -= bet_money
-
 
 
     print('ゲームを終了します。')
