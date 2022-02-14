@@ -123,11 +123,6 @@ while reGame == 2:
     print('プレイヤーのカード : ' + str(player_card))
     print('プレイヤーの数 : ' + str(player_num))
 
-
-    print('ディーラーのカード : ' + str(dealer_card))
-    print('ディーラーの数 : ' + str(dealer_num))
-
-
     # ディーラー16以下の時の処理
     for reCard in range(4+count,53):
         if dealer_num <= 16:
@@ -144,6 +139,9 @@ while reGame == 2:
                 dealer_num += int(num[1])
         else:
             break
+
+    print('ディーラーのカード : ' + str(dealer_card))
+    print('ディーラーの数 : ' + str(dealer_num))
 
     # 条件
     #プレイヤーとディーラーが引き分け
